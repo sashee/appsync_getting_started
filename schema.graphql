@@ -1,0 +1,25 @@
+type Todo{
+	name: String
+	checked: Boolean
+	user: User
+}
+
+type User{
+	id: ID
+	name: String
+	todos: [Todo]
+}
+
+type Mutation {
+	addTodo(userId: ID!, name: String!): Todo!
+}
+
+type Query {
+	user(id: ID): User
+	allUsers: [User]
+}
+
+schema {
+	query: Query
+	mutation: Mutation
+}
